@@ -65,9 +65,7 @@ public class AuthenticationService {
 	private String generateJwt(String user) {
 		JwtBuilder builder = Jwts.builder();
 		builder.setSubject(user);
-		// Set the token issue time as current time
 		builder.setIssuedAt(new Date());
-		// Set the token expiry as 20 minutes from now
 		builder.setExpiration(new Date((new Date()).getTime() + 1200000));
 		builder.signWith(SignatureAlgorithm.HS256, "secretkey");
 		String token = builder.compact();
@@ -86,5 +84,4 @@ public class AuthenticationService {
 	public RestTemplate restTemplate() {
 		return new RestTemplate();
 	}
-
 }

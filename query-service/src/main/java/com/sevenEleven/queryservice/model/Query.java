@@ -56,62 +56,62 @@ public class Query {
 	}
 
 	public Integer getId() {
-		LOGGER.debug("Inside queryId getter method");
+		LOGGER.info("Inside queryId getter method");
 		return id;
 	}
 
 	public void setId(Integer id) {
-		LOGGER.debug("Inside queryId setter method");
+		LOGGER.info("Inside queryId setter method");
 		this.id = id;
 	}
 
 	public String getQuestion() {
-		LOGGER.debug("Inside queryQuestion getter method");
+		LOGGER.info("Inside queryQuestion getter method");
 		return question;
 	}
 
 	public void setQuestion(String question) {
-		LOGGER.debug("Inside queryQuestion setter method");
+		LOGGER.info("Inside queryQuestion setter method");
 		this.question = question;
 	}
 
 	public String getAnswer() {
-		LOGGER.debug("Inside queryAnswer getter method");
+		LOGGER.info("Inside queryAnswer getter method");
 		return answer;
 	}
 
 	public void setAnswer(String answer) {
-		LOGGER.debug("Inside queryAnswer setter method");
+		LOGGER.info("Inside queryAnswer setter method");
 		this.answer = answer;
 	}
 
 	public Boolean getStatus() {
-		LOGGER.debug("Inside queryStatus getter method");
+		LOGGER.info("Inside queryStatus getter method");
 		return status;
 	}
 
 	public void setStatus(Boolean status) {
-		LOGGER.debug("Inside queryStatus setter method");
+		LOGGER.info("Inside queryStatus setter method");
 		this.status = status;
 	}
 
 	public Boolean getIsAnswered() {
-		LOGGER.debug("Inside queryIsAnswered getter method");
+		LOGGER.info("Inside queryIsAnswered getter method");
 		return isAnswered;
 	}
 
 	public void setIsAnswered(Boolean isAnswered) {
-		LOGGER.debug("Inside queryIsAnswered setter method");
+		LOGGER.info("Inside queryIsAnswered setter method");
 		this.isAnswered = isAnswered;
 	}
 
 	public User getUser() {
-		LOGGER.debug("Inside queryUser getter method");
+		LOGGER.info("Inside queryUser getter method");
 		return user;
 	}
 
 	public void setUser(User user) {
-		LOGGER.debug("Inside queryUser setter method");
+		LOGGER.info("Inside queryUser setter method");
 		this.user = user;
 	}
 

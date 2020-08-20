@@ -1,6 +1,7 @@
 package com.sevenEleven.appuserservice.security;
 
 import java.io.IOException;
+
 import java.util.ArrayList;
 
 import javax.servlet.FilterChain;
@@ -15,31 +16,30 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
+import com.sevenEleven.appuserservice.AppUserServiceApplication;
+
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
-/**
- * @author 806000
- *
- */
+
 public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
 
-//	public static final Logger LOGGER = LoggerFactory.getLogger(TruyumApplication.class);
+	public static final Logger LOGGER = LoggerFactory.getLogger(AppUserServiceApplication.class);
 
 	public JwtAuthorizationFilter(AuthenticationManager authenticationManager) {
 		super(authenticationManager);
-//		LOGGER.info("START");
-//		LOGGER.debug("{}: ", authenticationManager);
-//		LOGGER.info("END");
+		LOGGER.info("START");
+		LOGGER.debug("{}: ", authenticationManager);
+		LOGGER.info("END");
 	}
 
 	@Override
 	protected void doFilterInternal(HttpServletRequest req, HttpServletResponse res, FilterChain chain)
 			throws IOException, ServletException {
-//		LOGGER.info("START");
+		LOGGER.info("START");
 		String header = req.getHeader("Authorization");
-//		LOGGER.debug("header info " + header);
+		LOGGER.debug("header info " + header);
 
 		if (header == null || !header.startsWith("Bearer ")) {
 			chain.doFilter(req, res);
@@ -50,11 +50,11 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
 
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 		chain.doFilter(req, res);
-//		LOGGER.info("End");
+		LOGGER.info("End");
 	}
 
 	private UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest request) {
-//		LOGGER.info("START");
+		LOGGER.info("START");
 		String token = request.getHeader("Authorization");
 		if (token != null) {
 			// parse the token.
@@ -62,19 +62,19 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
 			try {
 				jws = Jwts.parser().setSigningKey("secretkey").parseClaimsJws(token.replace("Bearer ", ""));
 				String user = jws.getBody().getSubject();
-//				LOGGER.debug(user);
+				LOGGER.debug(user);
 				if (user != null) {
-//					LOGGER.info("END");
+					LOGGER.info("END");
 					return new UsernamePasswordAuthenticationToken(user, null, new ArrayList<>());
 				}
 			} catch (JwtException ex) {
-//				LOGGER.info("END");
+				LOGGER.info("END");
 				return null;
 			}
-//			LOGGER.info("END");
+			LOGGER.info("END");
 			return null;
 		}
-//		LOGGER.info("END");
+		LOGGER.info("END");
 		return null;
 	}
 }

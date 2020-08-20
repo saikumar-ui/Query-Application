@@ -41,10 +41,5 @@ public class QueryController {
 	public void deleteQuery(@PathVariable int queryId) throws QueryNotFoundException {
 		queryService.deleteQueryById(queryId);
 	}
-	
-	@GetMapping("/token")
-	public String working() {
-		return "token in query service is woking";
-	}
-	
+		
 }

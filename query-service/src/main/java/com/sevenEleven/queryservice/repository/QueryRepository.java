@@ -11,6 +11,5 @@ import com.sevenEleven.queryservice.model.Query;
 public interface QueryRepository extends JpaRepository<Query, Integer>{
 	
 	List<Query>	findByAnswerIsNull();
-	Query findByIdAndUser(int id, int userId);
 
 }

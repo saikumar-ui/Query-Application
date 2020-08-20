@@ -65,52 +65,52 @@ public class User {
 	}
 
 	public Integer getId() {
-		LOGGER.debug("Inside userId getter method");
+		LOGGER.info("Inside userId getter method");
 		return id;
 	}
 
 	public void setId(Integer id) {
-		LOGGER.debug("Inside userId setter method");
+		LOGGER.info("Inside userId setter method");
 		this.id = id;
 	}
 
 	public String getUsername() {
-		LOGGER.debug("Inside username setter method");
+		LOGGER.info("Inside username setter method");
 		return username;
 	}
 
 	public void setUsername(String username) {
-		LOGGER.debug("Inside username getter method");
+		LOGGER.info("Inside username getter method");
 		this.username = username;
 	}
 
 	public String getPassword() {
-		LOGGER.debug("Inside UserPassword getter method");
+		LOGGER.info("Inside UserPassword getter method");
 		return password;
 	}
 
 	public void setPassword(String password) {
-		LOGGER.debug("Inside UserPassword setter method");
+		LOGGER.info("Inside UserPassword setter method");
 		this.password = password;
 	}
 	
 	public String getEmail() {
-		LOGGER.debug("Inside UserEmail getter method");
+		LOGGER.info("Inside UserEmail getter method");
 		return email;
 	}
 
 	public void setEmail(String email) {
-		LOGGER.debug("Inside UserEmail setter method");
+		LOGGER.info("Inside UserEmail setter method");
 		this.email = email;
 	}
 	
 	public String getRole() {
-		LOGGER.debug("Inside UserRole getter method");
+		LOGGER.info("Inside UserRole getter method");
 		return role;
 	}
 
 	public void setRole(String role) {
-		LOGGER.debug("Inside UserRole setter method");
+		LOGGER.info("Inside UserRole setter method");
 		this.role = role;
 	}
 	
