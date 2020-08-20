@@ -16,7 +16,6 @@ import org.springframework.web.client.RestTemplate;
 import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.EurekaClient;
 import com.netflix.discovery.shared.Application;
-import com.sevenEleven.appuserservice.model.AppUser;
 import com.sevenEleven.appuserservice.model.User;
 import com.sevenEleven.appuserservice.repository.UserRepository;
 
@@ -31,9 +30,9 @@ public class AuthenticationService {
 	@Autowired
 	AppUserDetailsService appUserDetailsService;
 
-//	@Value("${user.service.name: default service}")
-//	private String applicationName;
-//	
+	@Value("${user.service.name: default service}")
+	private String applicationName;
+	
 	@Autowired
 	@Lazy
 	private RestTemplate restTemplate;
@@ -76,16 +75,11 @@ public class AuthenticationService {
 	}
 	
 	@Transactional
-//	public void signup(User user) {
-	public void signup() {
-		
-//		System.out.println("config-serever prporties :   " + applicationName);
-//		Application application = eurekaClient.getApplication("user-service");
-//		InstanceInfo appInstance = application.getInstances().get(0);
-//		System.out.println("ipaddress : " + appInstance.getIPAddr()  + "  port : " + appInstance.getPort());
-//		String url = "http://" + appInstance.getIPAddr() + ":" + appInstance.getPort() + "/signup";
-//		String response = restTemplate.postForObject(url, user, String.class);
-//		System.out.println(response);
+	public void signup(User user) {		
+		Application application = eurekaClient.getApplication(applicationName);
+		InstanceInfo appInstance = application.getInstances().get(0);
+		String url = "http://" + appInstance.getIPAddr() + ":" + appInstance.getPort() + "/signup";
+		restTemplate.postForObject(url, user, String.class);
 	}
 	
 	@Bean
